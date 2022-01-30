@@ -89,7 +89,7 @@ if term#env#IsNvim() != 0
     execute 'tnoremap <A-j> <C-\><C-n>G<C-w>j'
     execute 'tnoremap <A-k> <C-\><C-n>G<C-w>k'
     execute 'tnoremap <A-l> <C-\><C-n>G<C-w>l'
-    silent! execute 'tmap <c-v> <C-\><C-n>"*pa'
+    silent! execute 'tmap <c-v> <C-\><C-n>""pa'
 elseif term#env#SupportTerminal()
     "terminal-emulator setting
     "execute 'tnoremap <Esc> <C-\><C-n>' "effect <a-> key?
@@ -97,7 +97,7 @@ elseif term#env#SupportTerminal()
     call term#meta#map('tmap <silent> ','j',term#env#get_termwinkey().'j')
     call term#meta#map('tmap <silent> ','k',term#env#get_termwinkey().'k')
     call term#meta#map('tmap <silent> ','l',term#env#get_termwinkey().'l')
-    silent! execute 'tnoremap <c-v> '.term#env#get_termwinkey().'"*'
+    silent! execute 'tnoremap <c-v> '.term#env#get_termwinkey().'""'
     call term#meta#map('tnoremap <silent> ','b','<C-left>')
     call term#meta#map('tnoremap <silent> ','f','<C-right>')
 endif

@@ -560,6 +560,7 @@ function! term#terminal#shell_pop(option) abort
         elseif term#env#SupportFloatingWindows()
             let l:term_list = term#terminal#get_buf_list()
             if !exists('l:buf')
+                let l:term_key=&termwinkey
                 let l:buf = term_start(l:shell, #{hidden: 1, exit_cb:function('<SID>JobExit'), 
                             \ term_rows:l:height, term_cols:l:width, env:l:env_dict})
                 call setbufvar(l:buf, '&buflisted', 0)
@@ -596,7 +597,7 @@ function! term#terminal#shell_pop(option) abort
                             \ 'drag': 1,
                             \ 'close': 'button',
                             \ })
-                "call setwinvar(l:win_id, '&wincolor', 'Pmenu')
+                call setwinvar(l:win_id, '&termwinkey', l:term_key)
             else
                 execute ':buf '.l:buf
             endif

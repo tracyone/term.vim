@@ -50,3 +50,4 @@ n & t | `alt-k` | jump to down win (terminal win or normal win)
  n | `<leader>rr` | open ranger window
  n | `<leader>rt` | open tig window
  n | `<leader>rg` | open tig status window
+ n | `<Ctrl-v>` | paste
