@@ -11,10 +11,6 @@ execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h').'/bundle/fzf.
 "Leaderf
 "execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h').'/bundle/LeaderF'
 
-set timeout timeoutlen=1000 ttimeoutlen=100
-let g:mapleader="\<Space>"
-let g:maplocalleader=','
-
 filetype plugin indent on
 syntax on
 syntax enable
