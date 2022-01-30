@@ -21,6 +21,7 @@ if term#env#IsVim8()
     let g:t_none=v:t_none
     let g:t_job=v:t_job
     let g:t_channel=v:t_channel
+    set termwinkey=<c-y>
 else
     let g:t_number=0
     let g:t_string=1
@@ -47,9 +48,10 @@ nnoremap  <silent><leader>j7 :call term#terminal#jump_to_floating_win(7)<cr>
 nnoremap  <silent><leader>j8 :call term#terminal#jump_to_floating_win(8)<cr>
 nnoremap  <silent><leader>j9 :call term#terminal#jump_to_floating_win(9)<cr>
 nnoremap  <silent><leader>rr :call term#terminal#start_ranger()<cr>
+nnoremap  <silent><leader>rt :call term#terminal#shell_pop({'opener':0x4, 'cmd':'tig'})<cr><cr>
+nnoremap  <silent><leader>rg :call term#terminal#shell_pop({'opener':0x2, 'cmd':'tig status'})<cr><cr>
 tnoremap <silent><Esc><Esc> <C-\><C-n>
 tnoremap  <silent><c-w>q <C-\><C-n>:call term#terminal#hide_popup()<cr>
-
 "previous terminal
 tnoremap  <silent><c-w>p <C-\><C-n>:call term#terminal#jump_to_floating_win(-1)<cr>
 "next terminal
@@ -60,7 +62,7 @@ tnoremap  <silent><c-w><space> <C-\><C-n>:call term#terminal#jump_to_floating_wi
 "new terminal
 tnoremap  <silent><c-w>a <C-\><C-n>:call term#terminal#jump_to_floating_win(-5)<cr>
 "last open
-tnoremap  <silent><c-w>t <C-\><C-n>:call term#terminal#jump_to_floating_win(-3)<cr>
+tnoremap  <silent><c-w><tab> <C-\><C-n>:call term#terminal#jump_to_floating_win(-3)<cr>
 "rename terminal
 tnoremap  <silent><c-w>r <C-\><C-n>:call term#terminal#rename()<cr>
 "move terminal
@@ -79,6 +81,7 @@ nnoremap <silent><leader>re :call term#terminal#repl()<cr>
 nnoremap <silent><leader>tr :execute line(".")."T"<cr>
 nnoremap <silent><leader>ta :1,$T<cr>
 if term#env#IsNvim() != 0
+    autocmd TermOpen * :startinsert
     tnoremap  <silent><c-w>d <C-\><C-n>:call term#terminal#hide_all()<cr>
     nnoremap <silent><c-w>d :call term#terminal#hide_all()<cr>
     "terminal-emulator setting
@@ -98,6 +101,11 @@ elseif term#env#SupportTerminal()
     call term#meta#map('tnoremap <silent> ','b','<C-left>')
     call term#meta#map('tnoremap <silent> ','f','<C-right>')
 endif
+"move between windows
+call term#meta#map('nnoremap','h','  <C-w>h')
+call term#meta#map('nnoremap','l','<C-w>l')
+call term#meta#map('nnoremap','j','<C-w>j')
+call term#meta#map('nnoremap','k','<C-w>k')
 
 " Open vimshell or neovim's emulator in split window
 noremap <silent> <F4> :call term#terminal#shell_pop({'opener':0x1})<cr>

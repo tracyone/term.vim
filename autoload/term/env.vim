@@ -145,6 +145,8 @@ function! term#env#get_termwinkey() abort
     endif
     if empty(l:result)
         return '<c-w>'
+    else
+        return l:result
     endif
 endfunction
 
