@@ -4,6 +4,8 @@ execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h')
 "fzf
 execute 'set runtimepath+='.'~/.fzf'
 execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h').'/bundle/fzf.vim'
+let g:mapleader="\<Space>"
+let g:maplocalleader=','
 
 "ctrlp
 "execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h').'/bundle/ctrlp.vim'
