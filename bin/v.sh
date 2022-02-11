@@ -24,17 +24,18 @@ if [ -n "$TMUX"  ]; then
           for var in $@; do
               if [[ $var = /*  ]]; then
                   #path already looks absolute...
-                  absfilepath=$absfilepath" ""$var"
+                  absfilepath="$var"
               elif [[ $var =~ $regex_rule ]]; then
                   option=${var}
+                  continue
               else
-                  absfilepath=$absfilepath" ""$PWD/${var#./}"
+                  absfilepath="$PWD/${var#./}"
               fi
               # only sendkeys to vim if there were args (like a file name or path), if not we just change to the vim window/pane
               # use bash's printf to escape chars like vim likes.
+              tmux send-keys -t $i "${VIM_ACTION} $option $(printf "%q" $absfilepath)" C-m
           done
           #if [[ ! -z $absfilepath ]]; then
-          tmux send-keys -t $i "${VIM_ACTION} $option $(printf "%q" $absfilepath)" C-m
           #fi
       fi
       # lets make the tmux window that had the first vim pane active 
