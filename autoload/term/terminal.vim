@@ -174,7 +174,7 @@ function! term#terminal#rename() abort
             let l:user_input = ' '
             let l:user_input .= input('Please input a new name: ')
             let s:term_obj[l:buf].title = l:user_input
-            if term#env#IsNvim() == 0
+            if term#env#IsNvim() == 0 && term#terminal#get_option(l:buf) == 0x2
                 let l:origin_opt = popup_getoptions(l:win_id)
                 let l:user_input .= matchstr(l:origin_opt.title, "[\\d/\\d\\]")
                 call popup_setoptions(l:win_id, {'title':l:user_input})
