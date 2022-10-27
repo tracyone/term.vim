@@ -4,35 +4,33 @@ call term#meta#init()
 let $PATH = fnamemodify(expand('<sfile>'), ':p:h').'/../bin:'.$PATH
 
 " my faviorte colors
-hi def vinux_tabline ctermfg=15 ctermbg=242 guifg=#7c6f64 guibg=#3c3836
-hi def vinux_warn cterm=bold ctermfg=121 gui=bold guifg=#fabd2f
-hi def vinux_info cterm=bold ctermfg=118 gui=bold guifg=#A6E22E
-hi def vinux_border cterm=bold ctermfg=118 gui=bold guifg=#665c54
-hi def vinux_normal guifg=#ebdbb2 guibg=#282828
+hi def term_warn cterm=bold ctermfg=121 gui=bold guifg=#fabd2f
+hi def term_info cterm=bold ctermfg=118 gui=bold guifg=#A6E22E
+hi def term_border cterm=bold ctermfg=118 gui=bold guifg=#665c54
 
 if term#env#IsVim8()
-    let g:t_number=v:t_number
-    let g:t_string=v:t_string
-    let g:t_func=v:t_func
-    let g:t_list=v:t_list
-    let g:t_dict=v:t_dict
-    let g:t_float=v:t_float
-    let g:t_bool=v:t_bool
-    let g:t_none=v:t_none
-    let g:t_job=v:t_job
-    let g:t_channel=v:t_channel
+    let g:term_number=v:t_number
+    let g:term_string=v:t_string
+    let g:term_func=v:t_func
+    let g:term_list=v:t_list
+    let g:term_dict=v:t_dict
+    let g:term_float=v:t_float
+    let g:term_bool=v:t_bool
+    let g:term_none=v:t_none
+    let g:term_job=v:t_job
+    let g:term_channel=v:t_channel
     set termwinkey=<c-y>
 else
-    let g:t_number=0
-    let g:t_string=1
-    let g:t_func=2
-    let g:t_list=3
-    let g:t_dict=4
-    let g:t_float=5
-    let g:t_bool=6
-    let g:t_none=7
-    let g:t_job=8
-    let g:t_channel=9
+    let g:term_number=0
+    let g:term_string=1
+    let g:term_func=2
+    let g:term_list=3
+    let g:term_dict=4
+    let g:term_float=5
+    let g:term_bool=6
+    let g:term_none=7
+    let g:term_job=8
+    let g:term_channel=9
 endif
 
 nnoremap  <silent><leader>jf :call term#terminal#jump_to_floating_win(-4)<cr>

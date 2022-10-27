@@ -5,11 +5,12 @@
 " vim -u minimal_vimrc.vim
 " Third:
 " press <Space>af to open a terminl in floating window
+" press <C-w>r to name this terminal
 " press <C-w>q to hide it
-" press <Space>af to open another hide terminl
+" press <Space>af to open another terminl
 " press <C-w>p to switch between multiple terminal
 " Fourth:
-" Modify this file, specify the path of fzf and fzf.vim
+" Modify this file, specify the path of fzf and fzf.vim to runtimepath
 " Start from first step and hide all terminal
 " press <Space>jf to select terminal from fzf window
 "

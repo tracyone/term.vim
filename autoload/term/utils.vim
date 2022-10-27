@@ -31,19 +31,19 @@ endfunction
 "a:1-->err or warn or info,default is warn
 "a:2-->flag of VimEnter,0 or 1
 function! term#utils#EchoWarning(str,...) abort
-    let l:level='vinux_warn'
+    let l:level='term_warn'
     let l:flag=0
     if a:0 != 0
         for s:needle in a:000
-            if type(s:needle) == g:t_string
+            if type(s:needle) == g:term_string
                 if s:needle ==? 'err'
                     let l:level='WarningMsg'
                 elseif s:needle ==? 'warn'
-                    let l:level='vinux_warn'
+                    let l:level='term_warn'
                 elseif s:needle ==? 'info'
-                    let l:level='vinux_info'
+                    let l:level='term_info'
                 endif
-            elseif type(s:needle) == g:t_number
+            elseif type(s:needle) == g:term_number
                 let l:flag=s:needle
             endif
         endfor
@@ -76,7 +76,7 @@ function! term#utils#EchoWarning(str,...) abort
                     \ 'row': l:win.line, 'anchor': 'NW', 'border': 'single', 'style': 'minimal', 'zindex': 200}
         let l:win.id=nvim_open_win(l:bufnr, v:false,l:opts)
         call nvim_buf_set_lines(l:bufnr, 0, -1, v:false, [l:str])
-        call nvim_win_set_option(l:win.id, 'winhl', 'Normal:'.l:level.',FloatBorder:vinux_border')
+        call nvim_win_set_option(l:win.id, 'winhl', 'Normal:'.l:level.',FloatBorder:term_border')
         call nvim_buf_set_option(l:bufnr, 'buftype', 'nofile')
         call nvim_buf_set_option(l:bufnr, 'bufhidden', 'wipe')
         call nvim_win_set_option(l:win.id, 'winblend', 30)
@@ -110,7 +110,7 @@ function! term#utils#EchoWarning(str,...) abort
                     \ 'maxwidth': &columns/3,
                     \ 'border': [],
                     \ 'borderchars':['─', '│', '─', '│', '┌', '┐', '┘', '└'],
-                    \ 'borderhighlight':['vinux_border'],
+                    \ 'borderhighlight':['term_border'],
                     \ 'drag': 1,
                     \ 'callback': 'VimCloseWin',
                     \ })

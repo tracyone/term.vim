@@ -449,7 +449,7 @@ function! term#terminal#shell_pop(option) abort
     let l:term_obj = {}
     let l:env_dict = {"TIG_EDITOR":"t"}
     let l:pos_str = 'topright'
-    if type(a:option) != g:t_dict
+    if type(a:option) != g:term_dict
         call term#utils#EchoWarning("Error argument!")
         return
     endif
@@ -543,7 +543,7 @@ function! term#terminal#shell_pop(option) abort
                 endif
                 let l:term_obj.title = l:title
                 let l:term_obj.line = 0
-                if has_key(a:option, 'exit_cb') && type(a:option.exit_cb) == g:t_func
+                if has_key(a:option, 'exit_cb') && type(a:option.exit_cb) == g:term_func
                     let l:term_obj.exit_cb = a:option.exit_cb
                 endif
                 call nvim_buf_set_option(l:buf, 'buftype', 'nofile')
@@ -556,7 +556,7 @@ function! term#terminal#shell_pop(option) abort
                 let l:opts = {'relative': 'editor', 'width': l:width, 'height': l:height, 'col': l:col,
                             \ 'row': l:row, 'anchor': l:anchor, 'border': 'rounded', 'focusable': v:true, 'style': 'minimal', 'zindex': 1}
                 let l:win_id=nvim_open_win(l:buf, v:true, l:opts)
-                call nvim_win_set_option(l:win_id, 'winhl', 'FloatBorder:vinux_border')
+                call nvim_win_set_option(l:win_id, 'winhl', 'FloatBorder:term_border')
                 call nvim_win_set_option(l:win_id, 'winblend', 30)
             else
                 execute ':buf '.l:buf
@@ -576,7 +576,7 @@ function! term#terminal#shell_pop(option) abort
                 let l:no_of_term = len(l:term_list) + 1
                 let l:term_obj.title = l:title
                 let l:term_obj.line = 0
-                if has_key(a:option, 'exit_cb') && type(a:option.exit_cb) == g:t_func
+                if has_key(a:option, 'exit_cb') && type(a:option.exit_cb) == g:term_func
                     let l:term_obj.exit_cb = a:option.exit_cb
                 endif
                 let l:title .= '['.l:no_of_term.'/'.l:no_of_term.']'
@@ -602,7 +602,7 @@ function! term#terminal#shell_pop(option) abort
                             \ 'border': [],
                             \ 'wrap': 0,
                             \ 'borderchars':['─', '│', '─', '│', '┌', '┐', '┘', '└'],
-                            \ 'borderhighlight':['vinux_border'],
+                            \ 'borderhighlight':['term_border'],
                             \ 'drag': 1,
                             \ 'close': 'button',
                             \ })
