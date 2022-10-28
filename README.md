@@ -72,7 +72,7 @@ I provide a minimal vimrc for using this plugin.
 
 ```
 git clone https://github.com/tracyone/term.vim
-cd termin.vim
+cd term.vim
 vim -u minimal_vimrc.vim
 ```
 
