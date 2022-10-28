@@ -33,6 +33,8 @@ else
     let g:term_channel=9
 endif
 
+command! -nargs=* -range T call term#terminal#send(<range>, <line1>, <line2>, <q-args>)
+
 if get(g:, 'term_vim_no_default_key_mappings', 0) == 0
     nnoremap  <silent><leader>jf :call term#terminal#jump_to_floating_win(-4)<cr>
     nnoremap  <silent><leader>jt :call term#terminal#jump_to_floating_win(-3)<cr>
@@ -74,7 +76,6 @@ if get(g:, 'term_vim_no_default_key_mappings', 0) == 0
     tnoremap <silent><c-w>v <C-\><C-n>:call term#terminal#switch_opener({'opener':0x8})<cr>
     tnoremap <silent><c-w>s <C-\><C-n>:call term#terminal#switch_opener({'opener':0x1})<cr>
     tnoremap <silent><c-w>f <C-\><C-n>:call term#terminal#switch_opener({'opener':0x2})<cr>
-    command! -nargs=* -range T call term#terminal#send(<range>, <line1>, <line2>, <q-args>)
     vnoremap <silent><leader>tr :T<cr>
     nnoremap <silent><leader>re :call term#terminal#repl()<cr>
     nnoremap <silent><leader>tr :execute line(".")."T"<cr>

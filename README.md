@@ -17,6 +17,10 @@ Terminal manager for (neo)vim
 
 # Default keymapping
 
+NOTE:
+- `n` mean normal mode
+- `t` mean temrinal mode
+
 mode  |      key | description
 ----  |     ---- | -----------
 n | `<leader>af` | open a new terminal in floating window
@@ -60,7 +64,7 @@ Put following line into your vimrc
 let g:term_vim_no_default_key_mappings = 1
 ```
 
-Reference [this](https://github.com/tracyone/term.vim/blob/main/plugin/term.vim#L37-L90) from this repository.
+Then reference [plugin/term.vim#L39-L91](https://github.com/tracyone/term.vim/blob/main/plugin/term.vim#L39-L91), copy these lines to your vimrc, change keymap whatever you like.
 
 # minimal vimrc
 
