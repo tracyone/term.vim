@@ -15,7 +15,7 @@ Terminal manager for (neo)vim
 8. Seamless switching between Vim and Ranger
 
 
-# keymapping
+# Default keymapping
 
 mode  |      key | description
 ----  |     ---- | -----------
@@ -51,3 +51,27 @@ n & t | `alt-k` | jump to down win (terminal win or normal win)
  n | `<leader>rt` | open tig window
  n | `<leader>rg` | open tig status window
  n | `<Ctrl-v>` | paste
+
+# Custom key mapping
+
+Put following line into your vimrc
+
+```
+let g:term_vim_no_default_key_mappings = 1
+```
+
+Reference [this](https://github.com/tracyone/term.vim/blob/main/plugin/term.vim#L37-L90) from this repository.
+
+# minimal vimrc
+
+I provide a minimal vimrc for using this plugin.
+
+```
+git clone https://github.com/tracyone/term.vim
+cd termin.vim
+vim -u minimal_vimrc.vim
+```
+
+You can use this minimal vimrc to produce a bug of term.vim if you find one.
+
+

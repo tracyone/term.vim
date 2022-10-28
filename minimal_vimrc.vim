@@ -4,10 +4,10 @@
 " Second:
 " vim -u minimal_vimrc.vim
 " Third:
-" press <Space>af to open a terminl in floating window
+" press <Space>af to open a terminal in floating window
 " press <C-w>r to name this terminal
 " press <C-w>q to hide it
-" press <Space>af to open another terminl
+" press <Space>af to open another terminal
 " press <C-w>p to switch between multiple terminal
 " Fourth:
 " Modify this file, specify the path of fzf and fzf.vim to runtimepath
@@ -17,6 +17,9 @@
 set nocompatible
 
 execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h')
+
+"let g:term_vim_no_default_key_mappings = 1
+
 "fzf
 "execute 'set runtimepath+='.'~/.fzf'
 "execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h').'/bundle/fzf.vim'

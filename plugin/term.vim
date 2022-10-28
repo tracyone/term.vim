@@ -33,51 +33,63 @@ else
     let g:term_channel=9
 endif
 
-nnoremap  <silent><leader>jf :call term#terminal#jump_to_floating_win(-4)<cr>
-nnoremap  <silent><leader>jt :call term#terminal#jump_to_floating_win(-3)<cr>
-nnoremap  <silent><leader>j0 :call term#terminal#jump_to_floating_win(0)<cr>
-nnoremap  <silent><leader>j1 :call term#terminal#jump_to_floating_win(1)<cr>
-nnoremap  <silent><leader>j2 :call term#terminal#jump_to_floating_win(2)<cr>
-nnoremap  <silent><leader>j3 :call term#terminal#jump_to_floating_win(3)<cr>
-nnoremap  <silent><leader>j4 :call term#terminal#jump_to_floating_win(4)<cr>
-nnoremap  <silent><leader>j5 :call term#terminal#jump_to_floating_win(5)<cr>
-nnoremap  <silent><leader>j6 :call term#terminal#jump_to_floating_win(6)<cr>
-nnoremap  <silent><leader>j7 :call term#terminal#jump_to_floating_win(7)<cr>
-nnoremap  <silent><leader>j8 :call term#terminal#jump_to_floating_win(8)<cr>
-nnoremap  <silent><leader>j9 :call term#terminal#jump_to_floating_win(9)<cr>
-nnoremap  <silent><leader>rr :call term#terminal#start_ranger()<cr>
-nnoremap  <silent><leader>rt :call term#terminal#shell_pop({'opener':0x4, 'cmd':'tig'})<cr><cr>
-nnoremap  <silent><leader>rg :call term#terminal#shell_pop({'opener':0x2, 'cmd':'tig status'})<cr><cr>
-tnoremap <silent><Esc><Esc> <C-\><C-n>
-tnoremap  <silent><c-w>q <C-\><C-n>:call term#terminal#hide_popup()<cr>
-"previous terminal
-tnoremap  <silent><c-w>p <C-\><C-n>:call term#terminal#jump_to_floating_win(-1)<cr>
-"next terminal
-tnoremap  <silent><c-w>n <C-\><C-n>:call term#terminal#jump_to_floating_win(-2)<cr>
-tnoremap  <silent><c-w>w <C-\><C-n>:call term#terminal#jump_to_floating_win(-2)<cr>
-"start fuzzy finder to select terminal
-tnoremap  <silent><c-w><space> <C-\><C-n>:call term#terminal#jump_to_floating_win(-4)<cr>
-"new terminal
-tnoremap  <silent><c-w>a <C-\><C-n>:call term#terminal#jump_to_floating_win(-5)<cr>
-"last open
-tnoremap  <silent><c-w><tab> <C-\><C-n>:call term#terminal#jump_to_floating_win(-3)<cr>
-"rename terminal
-tnoremap  <silent><c-w>r <C-\><C-n>:call term#terminal#rename()<cr>
-"move terminal
-tnoremap <silent><c-w>h <C-\><C-n>:call term#terminal#move_floating_win("left")<cr>
-tnoremap <silent><c-w>l <C-\><C-n>:call term#terminal#move_floating_win("right")<cr>
-tnoremap <silent><c-w>j <C-\><C-n>:call term#terminal#move_floating_win("bottom")<cr>
-tnoremap <silent><c-w>k <C-\><C-n>:call term#terminal#move_floating_win("top")<cr>
-tnoremap <silent><c-w>m <C-\><C-n>:call term#terminal#move_floating_win("middle")<cr>
-tnoremap <silent><c-w>t <C-\><C-n>:call term#terminal#switch_opener({'opener':0x4})<cr>
-tnoremap <silent><c-w>v <C-\><C-n>:call term#terminal#switch_opener({'opener':0x8})<cr>
-tnoremap <silent><c-w>s <C-\><C-n>:call term#terminal#switch_opener({'opener':0x1})<cr>
-tnoremap <silent><c-w>f <C-\><C-n>:call term#terminal#switch_opener({'opener':0x2})<cr>
-command! -nargs=* -range T call term#terminal#send(<range>, <line1>, <line2>, <q-args>)
-vnoremap <silent><leader>tr :T<cr>
-nnoremap <silent><leader>re :call term#terminal#repl()<cr>
-nnoremap <silent><leader>tr :execute line(".")."T"<cr>
-nnoremap <silent><leader>ta :1,$T<cr>
+if get(g:, 'term_vim_no_default_key_mappings', 0) == 0
+    nnoremap  <silent><leader>jf :call term#terminal#jump_to_floating_win(-4)<cr>
+    nnoremap  <silent><leader>jt :call term#terminal#jump_to_floating_win(-3)<cr>
+    nnoremap  <silent><leader>j0 :call term#terminal#jump_to_floating_win(0)<cr>
+    nnoremap  <silent><leader>j1 :call term#terminal#jump_to_floating_win(1)<cr>
+    nnoremap  <silent><leader>j2 :call term#terminal#jump_to_floating_win(2)<cr>
+    nnoremap  <silent><leader>j3 :call term#terminal#jump_to_floating_win(3)<cr>
+    nnoremap  <silent><leader>j4 :call term#terminal#jump_to_floating_win(4)<cr>
+    nnoremap  <silent><leader>j5 :call term#terminal#jump_to_floating_win(5)<cr>
+    nnoremap  <silent><leader>j6 :call term#terminal#jump_to_floating_win(6)<cr>
+    nnoremap  <silent><leader>j7 :call term#terminal#jump_to_floating_win(7)<cr>
+    nnoremap  <silent><leader>j8 :call term#terminal#jump_to_floating_win(8)<cr>
+    nnoremap  <silent><leader>j9 :call term#terminal#jump_to_floating_win(9)<cr>
+    nnoremap  <silent><leader>rr :call term#terminal#start_ranger()<cr>
+    nnoremap  <silent><leader>rt :call term#terminal#shell_pop({'opener':0x4, 'cmd':'tig'})<cr><cr>
+    nnoremap  <silent><leader>rg :call term#terminal#shell_pop({'opener':0x2, 'cmd':'tig status'})<cr><cr>
+    tnoremap <silent><Esc><Esc> <C-\><C-n>
+    tnoremap  <silent><c-w>q <C-\><C-n>:call term#terminal#hide_popup()<cr>
+    "previous terminal
+    tnoremap  <silent><c-w>p <C-\><C-n>:call term#terminal#jump_to_floating_win(-1)<cr>
+    "next terminal
+    tnoremap  <silent><c-w>n <C-\><C-n>:call term#terminal#jump_to_floating_win(-2)<cr>
+    tnoremap  <silent><c-w>w <C-\><C-n>:call term#terminal#jump_to_floating_win(-2)<cr>
+    "start fuzzy finder to select terminal
+    tnoremap  <silent><c-w><space> <C-\><C-n>:call term#terminal#jump_to_floating_win(-4)<cr>
+    "new terminal
+    tnoremap  <silent><c-w>a <C-\><C-n>:call term#terminal#jump_to_floating_win(-5)<cr>
+    "last open
+    tnoremap  <silent><c-w><tab> <C-\><C-n>:call term#terminal#jump_to_floating_win(-3)<cr>
+    "rename terminal
+    tnoremap  <silent><c-w>r <C-\><C-n>:call term#terminal#rename()<cr>
+    "move terminal
+    tnoremap <silent><c-w>h <C-\><C-n>:call term#terminal#move_floating_win("left")<cr>
+    tnoremap <silent><c-w>l <C-\><C-n>:call term#terminal#move_floating_win("right")<cr>
+    tnoremap <silent><c-w>j <C-\><C-n>:call term#terminal#move_floating_win("bottom")<cr>
+    tnoremap <silent><c-w>k <C-\><C-n>:call term#terminal#move_floating_win("top")<cr>
+    tnoremap <silent><c-w>m <C-\><C-n>:call term#terminal#move_floating_win("middle")<cr>
+    tnoremap <silent><c-w>t <C-\><C-n>:call term#terminal#switch_opener({'opener':0x4})<cr>
+    tnoremap <silent><c-w>v <C-\><C-n>:call term#terminal#switch_opener({'opener':0x8})<cr>
+    tnoremap <silent><c-w>s <C-\><C-n>:call term#terminal#switch_opener({'opener':0x1})<cr>
+    tnoremap <silent><c-w>f <C-\><C-n>:call term#terminal#switch_opener({'opener':0x2})<cr>
+    command! -nargs=* -range T call term#terminal#send(<range>, <line1>, <line2>, <q-args>)
+    vnoremap <silent><leader>tr :T<cr>
+    nnoremap <silent><leader>re :call term#terminal#repl()<cr>
+    nnoremap <silent><leader>tr :execute line(".")."T"<cr>
+    nnoremap <silent><leader>ta :1,$T<cr>
+    " Open vimshell or neovim's emulator in split window
+    noremap <silent> <F4> :call term#terminal#shell_pop({'opener':0x1})<cr>
+    nnoremap <silent> <Leader>as :call term#terminal#shell_pop({'opener':0x1})<cr>
+    " Open vimshell or neovim's emulator in vertical window
+    nnoremap <silent> <Leader>av :call term#terminal#shell_pop({'opener':0x8})<cr>
+    " Open vimshell or neovim's emulator in floating window
+    nnoremap <silent> <Leader>af :call term#terminal#shell_pop({'opener':0x2})<cr>
+    " Open vimshell or neovim's emulator in new tab
+    nnoremap <silent> <Leader>at :call term#terminal#shell_pop({'opener':0x4})<cr>
+endif
+
 if term#env#IsNvim() != 0
     autocmd TermOpen * :startinsert
     tnoremap  <silent><c-w>d <C-\><C-n>:call term#terminal#hide_all()<cr>
@@ -105,13 +117,4 @@ call term#meta#map('nnoremap','l','<C-w>l')
 call term#meta#map('nnoremap','j','<C-w>j')
 call term#meta#map('nnoremap','k','<C-w>k')
 
-" Open vimshell or neovim's emulator in split window
-noremap <silent> <F4> :call term#terminal#shell_pop({'opener':0x1})<cr>
-nnoremap <silent> <Leader>as :call term#terminal#shell_pop({'opener':0x1})<cr>
-" Open vimshell or neovim's emulator in vertical window
-nnoremap <silent> <Leader>av :call term#terminal#shell_pop({'opener':0x8})<cr>
-" Open vimshell or neovim's emulator in floating window
-nnoremap <silent> <Leader>af :call term#terminal#shell_pop({'opener':0x2})<cr>
-" Open vimshell or neovim's emulator in new tab
-nnoremap <silent> <Leader>at :call term#terminal#shell_pop({'opener':0x4})<cr>
 
