@@ -584,7 +584,10 @@ function! term#terminal#shell_pop(option) abort
             if and(l:option, 0x02)
                 let l:opts = {'relative': 'editor', 'width': l:width, 'height': l:height, 'col': l:col,
                             \ 'row': l:row, 'anchor': l:anchor, 'border': 'rounded', 'focusable': v:true,
-                            \ 'style': 'minimal', 'zindex': 1, 'title':l:title}
+                            \ 'style': 'minimal', 'zindex': 1}
+                if term#env#IsNvim() >= 0.9
+                    let l:opts.title = l:title
+                endif
                 let l:win_id=nvim_open_win(l:buf, v:true, l:opts)
                 call nvim_win_set_option(l:win_id, 'winhl', 'FloatBorder:term_border')
                 call nvim_win_set_option(l:win_id, 'winblend', 30)
