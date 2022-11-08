@@ -585,10 +585,13 @@ function! term#terminal#shell_pop(option) abort
                 let l:opts = {'relative': 'editor', 'width': l:width, 'height': l:height, 'col': l:col,
                             \ 'row': l:row, 'anchor': l:anchor, 'border': 'rounded', 'focusable': v:true,
                             \ 'style': 'minimal', 'zindex': 1}
-                if term#env#IsNvim() >= 0.9
-                    let l:opts.title = l:title
-                endif
-                let l:win_id=nvim_open_win(l:buf, v:true, l:opts)
+                let l:opts.title = l:title
+                try
+                    let l:win_id=nvim_open_win(l:buf, v:true, l:opts)
+                catch /E5555/
+                    call remove(l:opts, 'title')
+                    let l:win_id=nvim_open_win(l:buf, v:true, l:opts)
+                endtry
                 call nvim_win_set_option(l:win_id, 'winhl', 'FloatBorder:term_border')
                 call nvim_win_set_option(l:win_id, 'winblend', 30)
             else
