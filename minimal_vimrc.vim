@@ -22,15 +22,18 @@ execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h')
 
 "fzf
 "execute 'set runtimepath+='.'~/.fzf'
-"execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h').'/bundle/fzf.vim'
+"execute 'set runtimepath+='.$HOME.'/.vim/bundle/fzf.vim'
 let g:mapleader="\<Space>"
 let g:maplocalleader=','
 
 "ctrlp
-"execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h').'/bundle/ctrlp.vim'
-"
+"execute 'set runtimepath+='.$HOME.'/.vim/bundle/ctrlp.vim'
+
 "Leaderf
-"execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h').'/bundle/LeaderF'
+"execute 'set runtimepath+='.$HOME.'/.vim/bundle/LeaderF'
+
+"vim-clap
+"execute 'set runtimepath+='.$HOME.'/.vim/bundle/vim-clap'
 
 filetype plugin indent on
 syntax on

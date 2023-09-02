@@ -143,6 +143,8 @@ function! term#terminal#send(range, line1, line2, text) abort
             call term#fzf#terminal#start(l:text_list)
         elseif exists(':CtrlP')
             :call term#ctrlp#term#start(l:text_list)
+        elseif exists(':Clap')
+            :call term#clap#terminal#start(l:text_list)
         else
             :call term#utils#EchoWarning("Not support for current fuzzy finder:")
         endif
@@ -351,6 +353,8 @@ function! term#terminal#jump_to_floating_win(num) abort
                 :Leaderf term
             elseif exists(':CtrlP')
                 :call term#ctrlp#term#start("")
+            elseif exists(':Clap')
+                :call term#clap#terminal#start("")
             else
                 call term#terminal#open_term({'bufnr':l:last_close_bufnr})
             endif
