@@ -5,12 +5,12 @@ Terminal manager for (neo)vim
 # Feature:
 
 1. Multiple terminal support
-2. Support open terminal in floating window, vertical split window, horizon split window or tab
-3. Use fzf, ctrlp or LeaderF to switch terminal win when there are multiple terminal and preview terminal buffer
-4. Open files in tabs or in current windows on Vim from built-in terminal
+2. Support opening the terminal in a floating window, horizontal split window, vertical split window, and tab.
+3. When multiple terminals are opened, you can use fzf, ctrlp, LeaderF, or vim-clap to quickly select and jump to a specific terminal, with support for previewing the current output of the terminal.
+4. Support opening files using the current Vim.
 5. Support change the title of terminal win(only in vim)
-6. [REPL] Support send command to terminal win.Lunch fuzzy finder to select terminal if there are multiple terminal
-7. support move position of floating window
+6. Support sending command to terminal win(REPL). Lunch fuzzy finder to select terminal if there are multiple terminal
+7. Support moving the position of the floating window.
 8. Seamless switching between Vim and Tig
 8. Seamless switching between Vim and Ranger
 
@@ -18,8 +18,8 @@ Terminal manager for (neo)vim
 # Default keymapping
 
 NOTE:
-- `n` mean normal mode
-- `t` mean temrinal mode
+- 'n' represents normal mode
+- `t` represents terminal mode
 
 mode  |      key | description
 ----  |     ---- | -----------
@@ -76,6 +76,6 @@ cd term.vim
 vim -u minimal_vimrc.vim
 ```
 
-You can use this minimal vimrc to produce a bug of term.vim if you find one.
+You can use this minimal vimrc to reproduce the issue, if you find one.
 
 
