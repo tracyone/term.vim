@@ -8,7 +8,7 @@ Terminal manager for (neo)vim
 2. Support opening the terminal in a floating window, horizontal split window, vertical split window, and tab.
 3. When multiple terminals are opened, you can use fzf, ctrlp, LeaderF, or vim-clap to quickly select and jump to a specific terminal, with support for previewing the current output of the terminal.
 4. Support opening files using the current Vim.
-5. Support changing the title of terminal win(only in vim)
+5. Support changing the title of terminal win.
 6. Support sending command to terminal win(REPL). Lunch fuzzy finder to select terminal if there are multiple terminal
 7. Support moving the position of the floating window.
 8. Seamless switching between Vim and Tig
