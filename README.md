@@ -21,6 +21,29 @@ NOTE:
 - `n` represents normal mode
 - `t` represents terminal mode
 
+NOTE:
+
+To use `Alt`, you need to set following vim's option:
+
+```vim
+"enabel timeout"
+set timeout
+"not too small
+set ttimeoutlen=100
+```
+
+term.vim will check these option's value too:
+
+```vim
+if &timeout == 0
+    set timeout
+endif
+if &ttimeoutlen < 0
+    set ttimeoutlen=100
+endif
+
+```
+
 mode  |      key | description
 ----  |     ---- | -----------
 n | `<leader>af` | open a new terminal in floating window
@@ -55,6 +78,30 @@ n & t | `alt-k` | jump to down win (terminal win or normal win)
  n | `<leader>rt` | open tig window
  n | `<leader>rg` | open tig status window
  n | `<Ctrl-v>` | paste
+
+# Opening files using the current Vim
+
+term.vim add it's `bin/` directory to `$PATH`, you can find `t` and `e` command in vim's buildin terminal.
+
+To open files in current vim's tab windows:
+
+```bash
+t file1 file2 file3
+```
+
+To open files in current vim's current tab:
+
+```bash
+e file1
+```
+
+At least One of following dependency must be satisfied or it will fail.
+
+1. Support `clientserver` if you are using vim.
+2. Install `nvr` if you are using neovim
+3. Running tmux in your terminal
+4. vim in macOS
+5. gvim or macvim
 
 # Custom key mapping
 

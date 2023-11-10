@@ -8,6 +8,13 @@ hi def term_warn cterm=bold ctermfg=121 gui=bold guifg=#fabd2f
 hi def term_info cterm=bold ctermfg=118 gui=bold guifg=#A6E22E
 hi def term_border cterm=bold ctermfg=118 gui=bold guifg=#665c54
 
+if &timeout == 0
+    set timeout
+endif
+if &ttimeoutlen < 0
+    set ttimeoutlen=100
+endif
+
 if term#env#IsVim8()
     let g:term_number=v:t_number
     let g:term_string=v:t_string

@@ -20,11 +20,15 @@ execute 'set runtimepath+='.fnamemodify(expand('<sfile>'), ':p:h')
 
 "let g:term_vim_no_default_key_mappings = 1
 
+let g:mapleader="\<Space>"
+let g:maplocalleader=','
+
+set timeout
+set ttimeoutlen = 100
+
 "fzf
 "execute 'set runtimepath+='.'~/.fzf'
 "execute 'set runtimepath+='.$HOME.'/.vim/bundle/fzf.vim'
-let g:mapleader="\<Space>"
-let g:maplocalleader=','
 
 "ctrlp
 "execute 'set runtimepath+='.$HOME.'/.vim/bundle/ctrlp.vim'
