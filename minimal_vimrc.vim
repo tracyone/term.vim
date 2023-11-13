@@ -24,7 +24,7 @@ let g:mapleader="\<Space>"
 let g:maplocalleader=','
 
 set timeout
-set ttimeoutlen = 100
+set ttimeoutlen=100
 
 "fzf
 "execute 'set runtimepath+='.'~/.fzf'
